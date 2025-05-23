@@ -13,7 +13,7 @@
 (async function() {
     'use strict';
  
-    // Inject pulse animation
+    // Inject pulse animations
     const style = document.createElement('style');
     style.innerHTML = `
     @keyframes pulseRed {
