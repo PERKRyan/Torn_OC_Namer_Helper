@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.3.3
 // @description  Dynamically numbers duplicate OC roles based on slot order
-// @author       NotIbbyz
+// @author       PERK_Ryan (made from Allenone and NotIbbyz work)
 // @match        https://www.torn.com/factions.php?step=your*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=torn.com
 // @grant        GM_info
