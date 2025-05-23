@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         OC Role Display - Ravage Edition
+// @name         OC Role Display - PERK_Ryan Edition
 // @namespace    http://tampermonkey.net/
 // @version      1.3.3
 // @description  Dynamically numbers duplicate OC roles based on slot order
