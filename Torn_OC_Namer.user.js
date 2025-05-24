@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OC Role Display - PERK_Ryan Edition
 // @namespace    http://tampermonkey.net/
-// @version      1.3.3
+// @version      1.3.4
 // @description  Dynamically numbers duplicate OC roles based on slot order
 // @author       PERK_Ryan (made from Allenone and NotIbbyz work)
 // @match        https://www.torn.com/factions.php?step=your*
