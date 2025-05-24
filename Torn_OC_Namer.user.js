@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OC Role Display - PERK_Ryan Edition
 // @namespace    http://tampermonkey.net/
-// @version      1.3.4
+// @version      1.3.5
 // @description  Dynamically numbers duplicate OC roles based on slot order
 // @author       PERK_Ryan (made from Allenone and NotIbbyz work)
 // @match        https://www.torn.com/factions.php?step=your*
@@ -35,8 +35,8 @@
         {
             OCName: "Ace in the Hole",
             Positions: {
-                "IMPERSONATOR": 40,
-                "MUSCLE 1": 60,
+                "IMPERSONATOR": 70,
+                "MUSCLE 1": 70,
                 "MUSCLE 2": 70,
                 "HACKER": 70,
                 "DRIVER": 70
@@ -46,20 +46,20 @@
             OCName: "Stacking the Deck",
             Positions: {
                 "CAT BURGLAR": 70,
-                "DRIVER": 40,
-                "HACKER": 40,
+                "DRIVER": 70,
+                "HACKER": 70,
                 "IMPERSONATOR": 70
             }
         },
         {
             OCName: "Break The Bank",
             Positions: {
-                "ROBBER": 70,
-                "MUSCLE 1": 40,
-                "MUSCLE 2": 40,
-                "THIEF 1": 40,
-                "MUSCLE 3": 70,
-                "THIEF 2": 70
+                "ROBBER": 60,
+                "MUSCLE 1": 60,
+                "MUSCLE 2": 60,
+                "THIEF 1": 60,
+                "MUSCLE 3": 60,
+                "THIEF 2": 60
             }
         },
         {
