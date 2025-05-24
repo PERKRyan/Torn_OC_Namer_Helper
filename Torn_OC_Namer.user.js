@@ -35,42 +35,42 @@
         {
             OCName: "Ace in the Hole",
             Positions: {
-                "IMPERSONATOR": 62,
-                "MUSCLE 1": 62,
-                "MUSCLE 2": 55,
-                "HACKER": 60,
-                "DRIVER": 60
+                "IMPERSONATOR": 40,
+                "MUSCLE 1": 60,
+                "MUSCLE 2": 70,
+                "HACKER": 70,
+                "DRIVER": 70
             }
         },
         {
             OCName: "Stacking the Deck",
             Positions: {
-                "CAT BURGLAR": 62,
-                "DRIVER": 62,
-                "HACKER": 55,
-                "IMPERSONATOR": 55
+                "CAT BURGLAR": 70,
+                "DRIVER": 40,
+                "HACKER": 40,
+                "IMPERSONATOR": 70
             }
         },
         {
             OCName: "Break The Bank",
             Positions: {
-                "ROBBER": 62,
-                "MUSCLE 1": 62,
-                "MUSCLE 2": 55,
-                "THIEF 1": 55,
-                "MUSCLE 3": 60,
-                "THIEF 2": 60
+                "ROBBER": 70,
+                "MUSCLE 1": 40,
+                "MUSCLE 2": 40,
+                "THIEF 1": 40,
+                "MUSCLE 3": 70,
+                "THIEF 2": 70
             }
         },
         {
             OCName: "Blast From The Past",
             Positions: {
-                "PICKLOCK 1": 70,
-                "HACKER": 70,
+                "PICKLOCK 1": 50,
+                "HACKER": 50,
                 "ENGINEER": 70,
                 "BOMBER": 70,
                 "MUSCLE": 70,
-                "PICKLOCK 2": 67
+                "PICKLOCK 2": 40
             }
         },
         {
@@ -87,9 +87,9 @@
         { 
             OCName: "Honey Trap", 
             Positions: {
-                "ENFORCER": 70,
-                "MUSCLE 1": 70,
-                "MUSCLE 2": 67
+                "ENFORCER": 40,
+                "MUSCLE 1": 60,
+                "MUSCLE 2": 70
             } 
         },
         {
@@ -103,7 +103,7 @@
         { 
             OCName: "Leave No Trace", 
             Positions: {
-                "TECHIE": 70,
+                "TECHIE": 40,
                 "NEGOTIATOR": 70,
                 "IMPERSONATOR": 70
             } 
@@ -111,12 +111,12 @@
         { 
             OCName: "Stage Fright", 
             Positions: {
-                "ENFORCER": 70,
+                "ENFORCER": 60,
                 "MUSCLE 1": 70,
-                "MUSCLE 2": 70,
-                "MUSCLE 3": 70,
-                "LOOKOUT": 70,
-                "SNIPER": 67
+                "MUSCLE 2": 40,
+                "MUSCLE 3": 40,
+                "LOOKOUT": 40,
+                "SNIPER": 70
             } 
         },
         { 
@@ -124,8 +124,8 @@
             Positions: {
                 "HUSTLER": 70,
                 "IMPERSONATOR": 70,
-                "MUSCLE 1": 70,
-                "MUSCLE 2": 70
+                "MUSCLE 1": 40,
+                "MUSCLE 2": 40
             } 
         },
         { 
@@ -133,52 +133,52 @@
             Positions: {
                 "CAR THIEF": 70,
                 "IMPERSONATOR": 70,
-                "HUSTLER 1": 70,
-                "HUSTLER 2": 70
+                "HUSTLER 1": 50,
+                "HUSTLER 2": 50
             } 
         },
         { 
             OCName: "Market Forces",
             Positions: {
-                "ENFORCER": 70,
+                "ENFORCER": 40,
                 "NEGOTIATOR": 70,
                 "LOOKOUT": 70,
-                "ARSONIST": 70,
-                "MUSCLE": 70
+                "ARSONIST": 40,
+                "MUSCLE": 40
             } 
         },
         { 
             OCName: "Best of the Lot", 
             Positions: {
                 "PICKLOCK": 70,
-                "CAR THIEF": 70,
+                "CAR THIEF": 40,
                 "MUSCLE": 70,
-                "IMPERSONATOR": 70
+                "IMPERSONATOR": 40
             } 
         },
         { 
             OCName: "Cash Me If You Can",
             Positions: {
                 "THIEF 1": 70,
-                "THIEF 2": 70,
-                "LOOKOUT": 70
+                "THIEF 2": 40,
+                "LOOKOUT": 60
             } 
         },
         { 
             OCName: "Mob Mentality", 
             Positions: {
-                "LOOTER 1": 70,
-                "LOOTER 2": 70,
-                "LOOTER 3": 70,
-                "LOOTER 4": 70
+                "LOOTER 1": 10,
+                "LOOTER 2": 10,
+                "LOOTER 3": 10,
+                "LOOTER 4": 10
             } 
         },
         { 
             OCName: "Pet Project",
             Positions: {
-                "KIDNAPPER": 70,
-                "MUSCLE": 70,
-                "PICKLOCK": 67
+                "KIDNAPPER": 10,
+                "MUSCLE": 10,
+                "PICKLOCK": 10
             } 
         }
     ];
