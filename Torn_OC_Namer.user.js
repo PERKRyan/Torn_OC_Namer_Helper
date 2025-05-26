@@ -46,7 +46,7 @@
                    "MUSCLE 1": "P2",
                    "MUSCLE 2": "P3",
                    "HACKER": "P4",
-                   "DRIVER": 'P5"
+                   "DRIVER": "P5"
                }
         },
         {
