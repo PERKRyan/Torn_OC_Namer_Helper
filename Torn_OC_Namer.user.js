@@ -52,7 +52,7 @@
             }
         },
         {
-            OCName: "Break The Bank",
+            OCName: "Break the Bank",
             Positions: {
                 "ROBBER": 60,
                 "MUSCLE 1": 60,
@@ -63,7 +63,7 @@
             }
         },
         {
-            OCName: "Blast From The Past",
+            OCName: "Blast from the Past",
             Positions: {
                 "PICKLOCK 1": 50,
                 "HACKER": 50,
@@ -157,7 +157,7 @@
             } 
         },
         { 
-            OCName: "Cash Me If You Can",
+            OCName: "Cash Me if You Can",
             Positions: {
                 "THIEF 1": 70,
                 "THIEF 2": 40,
