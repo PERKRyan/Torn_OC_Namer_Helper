@@ -42,11 +42,11 @@
                 "DRIVER": 70
             },
             PositionPriority: {
-                   "IMPERSONATOR": "P1",
-                   "MUSCLE 1": "P2",
-                   "MUSCLE 2": "P3",
-                   "HACKER": "P4",
-                   "DRIVER": "P5"
+                   "IMPERSONATOR": "P5",
+                   "MUSCLE 1": "P3",
+                   "MUSCLE 2": "P4",
+                   "HACKER": "P1",
+                   "DRIVER": "P2"
                }
         },
         {
@@ -58,10 +58,10 @@
                 "IMPERSONATOR": 70
             },
             PositionPriority: {
-                   "CAT BURGLAR": "P1",
-                   "DRIVER": "P2",
+                   "CAT BURGLAR": "P2",
+                   "DRIVER": "P4",
                    "HACKER": "P3",
-                   "IMPERSONATOR": "P4"
+                   "IMPERSONATOR": "P1"
                }
         },
         {
@@ -75,12 +75,12 @@
                 "THIEF 2": 60
             },
             PositionPriority: {
-                  "ROBBER": "P1",
-                  "MUSCLE 1": "P1",
-                  "MUSCLE 2": "P1",
-                  "THIEF 1": "P1",
+                  "ROBBER": "P3",
+                  "MUSCLE 1": "P4",
+                  "MUSCLE 2": "P5",
+                  "THIEF 1": "P6",
                   "MUSCLE 3": "P1",
-                  "THIEF 2": "P1"
+                  "THIEF 2": "P2"
               }
         },
         {
@@ -94,12 +94,12 @@
                 "PICKLOCK 2": 40
             },
             PositionPriority: {
-                "PICKLOCK 1": "P1",
-                "HACKER": "P1",
-                "ENGINEER": "P1",
-                "BOMBER": "P1",
+                "PICKLOCK 1": "P4",
+                "HACKER": "P5",
+                "ENGINEER": "P2",
+                "BOMBER": "P3",
                 "MUSCLE": "P1",
-                "PICKLOCK 2": "P1"
+                "PICKLOCK 2": "P6"
             }
         },
         {
@@ -129,8 +129,8 @@
                 "MUSCLE 2": 70
             },
             PositionPriority: {
-                "ENFORCER": "P1",
-                "MUSCLE 1": "P1",
+                "ENFORCER": "P3",
+                "MUSCLE 1": "P2",
                 "MUSCLE 2": "P1"
             }
         },
@@ -155,8 +155,8 @@
                 "IMPERSONATOR": 70
             },
             PositionPriority: {
-                "TECHIE": "P1",
-                "NEGOTIATOR": "P1",
+                "TECHIE": "P3",
+                "NEGOTIATOR": "P2",
                 "IMPERSONATOR": "P1"
             }
         },
@@ -171,11 +171,11 @@
                 "SNIPER": 70
             },
             PositionPriority: {
-                "ENFORCER": "P1",
-                "MUSCLE 1": "P1",
-                "MUSCLE 2": "P1",
-                "MUSCLE 3": "P1",
-                "LOOKOUT": "P1",
+                "ENFORCER": "P3",
+                "MUSCLE 1": "P2",
+                "MUSCLE 2": "P6",
+                "MUSCLE 3": "P4",
+                "LOOKOUT": "P5",
                 "SNIPER": "P1"
             }
         },
@@ -189,9 +189,9 @@
             },
             PositionPriority: {
                    "HUSTLER": "P1",
-                   "IMPERSONATOR": "P1",
-                   "MUSCLE 1": "P1",
-                   "MUSCLE 2": "P1"
+                   "IMPERSONATOR": "P2",
+                   "MUSCLE 1": "P3",
+                   "MUSCLE 2": "P4"
                }
         },
         { 
@@ -204,9 +204,9 @@
             },
             PositionPriority: {
                 "CAR THIEF": "P1",
-                "IMPERSONATOR": "P1",
-                "HUSTLER 1": "P1",
-                "HUSTLER 2": "P1"
+                "IMPERSONATOR": "P2",
+                "HUSTLER 1": "P4",
+                "HUSTLER 2": "P3"
             }
         },
         { 
@@ -219,11 +219,11 @@
                 "MUSCLE": 40
             },
             PositionPriority: {
-                "ENFORCER": "P1",
+                "ENFORCER": "P4",
                 "NEGOTIATOR": "P1",
-                "LOOKOUT": "P1",
-                "ARSONIST": "P1",
-                "MUSCLE": "P1"
+                "LOOKOUT": "P2",
+                "ARSONIST": "P5",
+                "MUSCLE": "P3"
             }
         },
         { 
@@ -235,10 +235,10 @@
                 "IMPERSONATOR": 40
             },
             PositionPriority: {
-                "PICKLOCK": "P1",
-                "CAR THIEF": "P1",
+                "PICKLOCK": "P2",
+                "CAR THIEF": "P3",
                 "MUSCLE": "P1",
-                "IMPERSONATOR": "P1"
+                "IMPERSONATOR": "P4"
             }
         },
         { 
@@ -250,8 +250,8 @@
             },
             PositionPriority: {
                 "THIEF 1": "P1",
-                "THIEF 2": "P1",
-                "LOOKOUT": "P1"
+                "THIEF 2": "P3",
+                "LOOKOUT": "P2"
             }
         },
         { 
@@ -263,10 +263,10 @@
                 "LOOTER 4": 10
             },
             PositionPriority: {
-                "LOOTER 1": "P1",
+                "LOOTER 1": "P2",
                 "LOOTER 2": "P1",
-                "LOOTER 3": "P1",
-                "LOOTER 4": "P1"
+                "LOOTER 3": "P4",
+                "LOOTER 4": "P3"
             }
         },
         { 
@@ -278,8 +278,8 @@
             },
             PositionPriority: {
                 "KIDNAPPER": "P1",
-                "MUSCLE": "P1",
-                "PICKLOCK": "P1"
+                "MUSCLE": "P2",
+                "PICKLOCK": "P3"
             }
         }
     ];
