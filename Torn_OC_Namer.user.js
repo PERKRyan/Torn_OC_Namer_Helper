@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OC Role Display - PERK_Ryan Edition
 // @namespace    http://tampermonkey.net/
-// @version      1.4.0
+// @version      1.4.1
 // @description  Dynamically numbers duplicate OC roles based on slot order
 // @author       PERK_Ryan (made from Allenone and NotIbbyz work)
 // @match        https://www.torn.com/factions.php?step=your*
@@ -384,11 +384,15 @@
  
        const roleElem = slot.querySelector('.title___UqFNy');
        if (finalName && roleElem) {
-         const updatedName = `${priorityPrefix}${finalName}`;
-         if (roleElem.innerText.trim() !== updatedName) {
-           roleElem.innerText = updatedName;
-         }
+           const baseName = finalName.replace(/\s\d+$/, ''); // remove any trailing number
+           const priority = ocData?.PositionPriority?.[baseName] || '';
+           const updatedName = `${priority ? priority + ' ' : ''}${finalName}`;
+       
+           if (roleElem.innerText.trim() !== updatedName) {
+               roleElem.innerText = updatedName;
+           }
        }
+
      });
    }
  
