@@ -384,8 +384,7 @@
  
        const roleElem = slot.querySelector('.title___UqFNy');
        if (finalName && roleElem) {
-         const baseName = finalName.replace(/\s\d+$/, ''); // Strip number
-         const priority = ocData?.PositionPriority?.[baseName] || '';
+         const priority = ocData?.PositionPriority?.[finalName] || 'idk';
          const updatedName = `${priority ? priority + ' ' : ''}${finalName}`;
          roleElem.innerText = updatedName;
        }
