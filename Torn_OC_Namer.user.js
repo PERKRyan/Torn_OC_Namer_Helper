@@ -354,8 +354,8 @@
              required = ocData.Positions[baseName];
            }
  
-           if (ocData.PositionPriority && ocData.PositionPriority[baseName]) {
-             priorityPrefix = `${ocData.PositionPriority[baseName]} `;
+           if (ocData.PositionPriority && ocData.PositionPriority[finalName]) {
+             priorityPrefix = `${ocData.PositionPriority[finalName]} `;
            }
          }
        }
