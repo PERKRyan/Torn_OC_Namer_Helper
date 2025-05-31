@@ -1,15 +1,20 @@
 // ==UserScript==
 // @name         OC Role Display - PERK_Ryan Edition
 // @namespace    http://tampermonkey.net/
-// @version      1.4.3
-// @description  Dynamically numbers duplicate OC roles based on slot order
+// @version      1.5.0
+// @description  Dynamically numbers duplicate OC roles based on slot order, shows priority of roles, and stores your CPR for each crime/role
 // @author       PERK_Ryan (made from Allenone and NotIbbyz work)
 // @match        https://www.torn.com/factions.php?step=your*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=torn.com
 // @grant        GM_info
+// @grant        GM_setValue
+// @grant        GM_getValue
+// @grant        GM_xmlhttpRequest
 // @license      MIT
+// @connect      tornprobability.com
 // ==/UserScript==
- 
+
+//OC Role Display - PERK_Ryan Edition
 (async function() {
     'use strict';
  
@@ -105,20 +110,20 @@
         {
             OCName: "Bidding War",
             Positions: {
-                "ROBBER 1": 70,
-                "DRIVER": 70,
-                "ROBBER 2": 70,
+                "ROBBER 1": 60,
+                "DRIVER": 60,
+                "ROBBER 2": 60,
                 "ROBBER 3": 70,
-                "BOMBER 1": 70,
-                "BOMBER 2": 70
+                "BOMBER 1": 60,
+                "BOMBER 2": 60
             },
             PositionPriority: {
-                "ROBBER 1": "P1",
-                "DRIVER": "P1",
-                "ROBBER 2": "P1",
+                "ROBBER 1": "P6",
+                "DRIVER": "P3",
+                "ROBBER 2": "P2",
                 "ROBBER 3": "P1",
-                "BOMBER 1": "P1",
-                "BOMBER 2": "P1"
+                "BOMBER 1": "P5",
+                "BOMBER 2": "P4"
             }
         },
         { 
@@ -137,22 +142,22 @@
         {
             OCName: "No Reserve",
             Positions: {
-                "CAR THIEF": 70,
+                "CAR THIEF": 60,
                 "TECHIE": 70,
-                "ENGINEER": 70
+                "ENGINEER": 60
             },
             PositionPriority: {
-                "CAR THIEF": "P1",
+                "CAR THIEF": "P3",
                 "TECHIE": "P1",
-                "ENGINEER": "P1"
+                "ENGINEER": "P2"
             }
         },
         { 
             OCName: "Leave No Trace", 
             Positions: {
-                "TECHIE": 40,
-                "NEGOTIATOR": 70,
-                "IMPERSONATOR": 70
+                "TECHIE": 60,
+                "NEGOTIATOR": 60,
+                "IMPERSONATOR": 60
             },
             PositionPriority: {
                 "TECHIE": "P3",
@@ -164,10 +169,10 @@
             OCName: "Stage Fright", 
             Positions: {
                 "ENFORCER": 60,
-                "MUSCLE 1": 70,
-                "MUSCLE 2": 40,
-                "MUSCLE 3": 40,
-                "LOOKOUT": 40,
+                "MUSCLE 1": 60,
+                "MUSCLE 2": 60,
+                "MUSCLE 3": 60,
+                "LOOKOUT": 60,
                 "SNIPER": 70
             },
             PositionPriority: {
@@ -182,10 +187,10 @@
         { 
             OCName: "Snow Blind", 
             Positions: {
-                "HUSTLER": 70,
-                "IMPERSONATOR": 70,
-                "MUSCLE 1": 40,
-                "MUSCLE 2": 40
+                "HUSTLER": 60,
+                "IMPERSONATOR": 60,
+                "MUSCLE 1": 60,
+                "MUSCLE 2": 60
             },
             PositionPriority: {
                    "HUSTLER": "P1",
@@ -212,16 +217,16 @@
         { 
             OCName: "Market Forces",
             Positions: {
-                "ENFORCER": 40,
-                "NEGOTIATOR": 70,
-                "LOOKOUT": 70,
-                "ARSONIST": 40,
-                "MUSCLE": 40
+                "ENFORCER": 60,
+                "NEGOTIATOR": 60,
+                "LOOKOUT": 60,
+                "ARSONIST": 60,
+                "MUSCLE": 60
             },
             PositionPriority: {
-                "ENFORCER": "P4",
-                "NEGOTIATOR": "P1",
-                "LOOKOUT": "P2",
+                "ENFORCER": "P1",
+                "NEGOTIATOR": "P2",
+                "LOOKOUT": "P4",
                 "ARSONIST": "P5",
                 "MUSCLE": "P3"
             }
@@ -229,10 +234,10 @@
         { 
             OCName: "Best of the Lot", 
             Positions: {
-                "PICKLOCK": 70,
-                "CAR THIEF": 40,
-                "MUSCLE": 70,
-                "IMPERSONATOR": 40
+                "PICKLOCK": 60,
+                "CAR THIEF": 60,
+                "MUSCLE": 60,
+                "IMPERSONATOR": 60
             },
             PositionPriority: {
                 "PICKLOCK": "P2",
@@ -244,8 +249,8 @@
         { 
             OCName: "Cash Me if You Can",
             Positions: {
-                "THIEF 1": 70,
-                "THIEF 2": 40,
+                "THIEF 1": 60,
+                "THIEF 2": 60,
                 "LOOKOUT": 60
             },
             PositionPriority: {
@@ -263,8 +268,8 @@
                 "LOOTER 4": 10
             },
             PositionPriority: {
-                "LOOTER 1": "P2",
-                "LOOTER 2": "P1",
+                "LOOTER 1": "P1",
+                "LOOTER 2": "P2",
                 "LOOTER 3": "P4",
                 "LOOTER 4": "P3"
             }
@@ -278,8 +283,8 @@
             },
             PositionPriority: {
                 "KIDNAPPER": "P1",
-                "MUSCLE": "P2",
-                "PICKLOCK": "P3"
+                "MUSCLE": "P3",
+                "PICKLOCK": "P2"
             }
         }
     ];
@@ -420,3 +425,136 @@
    });
  
  })();
+
+
+/*  Faction CPR Tracker  */
+(function() {
+    'use strict';
+ 
+    const API_ENDPOINT = 'https://tornprobability.com:3000/api/SubmitCPR';
+    const TARGET_URL_BASE = 'page.php?sid=organizedCrimesData&step=crimeList';
+    const STORAGE_PREFIX = 'FactionCPRTracker_';
+    const isTornPDA = typeof window.flutter_inappwebview !== 'undefined';
+ 
+    // Storage functions
+    const getValue = isTornPDA
+    ? (key, def) => JSON.parse(localStorage.getItem(key) || JSON.stringify(def))
+    : GM_getValue;
+    const setValue = isTornPDA
+    ? (key, value) => localStorage.setItem(key, JSON.stringify(value))
+    : GM_setValue;
+ 
+    // HTTP request function
+    const xmlhttpRequest = isTornPDA
+    ? (details) => {
+        window.flutter_inappwebview.callHandler('PDA_httpPost', details.url, details.headers, details.data)
+            .then(response => {
+            details.onload({
+                status: response.status,
+                responseText: response.data
+            });
+        })
+            .catch(err => details.onerror(err));
+    }
+    : GM_xmlhttpRequest;
+ 
+    // API key handling
+    let API_KEY;
+    if (isTornPDA) {
+        API_KEY = "###PDA-APIKEY###"; // Hardcoded for TornPDA Change this manually if you want to use a different key.
+        setValue(`${STORAGE_PREFIX}api_key`, API_KEY);
+    } else {
+        API_KEY = getValue(`${STORAGE_PREFIX}api_key`, null);
+        if (!API_KEY) {
+            API_KEY = prompt('Please enter your Torn API key (Public Access):');
+            if (!API_KEY) {
+                alert('Faction CPR Tracker: API key is required for functionality.');
+                return;
+            }
+            setValue(`${STORAGE_PREFIX}api_key`, API_KEY);
+            if (API_KEY) {
+                submitCPRData(API_KEY, getValue(`${STORAGE_PREFIX}CheckpointPassRates`, {}));
+            }
+        }
+    }
+ 
+    async function submitCPRData(apiKey, checkpointPassRates) {
+        return new Promise((resolve, reject) => {
+            xmlhttpRequest({
+                method: 'POST',
+                url: API_ENDPOINT,
+                headers: { 'Content-Type': 'application/json' },
+                data: JSON.stringify({ apiKey, checkpointPassRates }),
+                onload: (response) => {
+                    if (response.status >= 200 && response.status < 300) {
+                        console.log('CPR data submitted successfully');
+                        resolve();
+                    } else {
+                        console.error('API error:', response.status, response.responseText);
+                        reject(new Error('API error'));
+                    }
+                },
+                onerror: (err) => {
+                    console.error('Submission error:', err);
+                    reject(err);
+                }
+            });
+        });
+    }
+ 
+    function processCPRs(data) {
+        const scenarioName = data.scenario.name;
+        let CheckpointPassRates = getValue(`${STORAGE_PREFIX}CheckpointPassRates`, {});
+ 
+        if (!CheckpointPassRates[scenarioName]) {
+            CheckpointPassRates[scenarioName] = {};
+            data.playerSlots.forEach(slot => {
+                CheckpointPassRates[scenarioName][slot.name] = slot.player === null ? slot.successChance : 0;
+            });
+        } else {
+            data.playerSlots.forEach(slot => {
+                if (slot.player === null) {
+                    CheckpointPassRates[scenarioName][slot.name] = slot.successChance;
+                }
+            });
+        }
+ 
+        setValue(`${STORAGE_PREFIX}CheckpointPassRates`, CheckpointPassRates);
+    }
+ 
+    // Fetch Interception
+    const win = isTornPDA ? window : (typeof unsafeWindow !== 'undefined' ? unsafeWindow : window);
+    const originalFetch = win.fetch;
+    win.fetch = async function(resource, config) {
+        const url = typeof resource === 'string' ? resource : resource.url;
+        if (config?.method?.toUpperCase() !== 'POST' || !url.includes(TARGET_URL_BASE)) {
+            return originalFetch.apply(this, arguments);
+        }
+ 
+        let isRecruitingGroup = false;
+        if (config?.body instanceof FormData) {
+            isRecruitingGroup = config.body.get('group') === 'Recruiting';
+        } else if (config?.body) {
+            isRecruitingGroup = config.body.toString().includes('group=Recruiting');
+        }
+ 
+        if (!isRecruitingGroup) {
+            return originalFetch.apply(this, arguments);
+        }
+ 
+        const response = await originalFetch.apply(this, arguments);
+        try {
+            const json = JSON.parse(await response.clone().text());
+            if (json.success && json.data && json.data.length > 1) {
+                json.data.forEach(processCPRs);
+                const API_KEY = getValue(`${STORAGE_PREFIX}api_key`, null);
+                if (API_KEY) {
+                    submitCPRData(API_KEY, getValue(`${STORAGE_PREFIX}CheckpointPassRates`, {}));
+                }
+            }
+        } catch (err) {
+            console.error('Error processing response:', err);
+        }
+        return response;
+    };
+})();
